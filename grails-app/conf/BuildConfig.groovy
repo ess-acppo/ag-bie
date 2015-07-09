@@ -6,7 +6,7 @@ grails.project.work.dir = "target/work"
 grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 
-grails.plugin.location."bie-plugin" = "../bie-plugin"
+//grails.plugin.location."bie-plugin" = "../bie-plugin"
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
 grails.project.fork = [
@@ -26,6 +26,10 @@ grails.project.dependency.resolution = {
     legacyResolve false // whether to do a secondary resolve on plugin installation, not advised and here for backwards compatibility
 
     repositories {
+        mavenLocal()
+        mavenRepo ("http://nexus.ala.org.au/content/groups/public/") {
+            updatePolicy 'always'
+        }
     }
 
     dependencies {
@@ -38,6 +42,7 @@ grails.project.dependency.resolution = {
         }
         // plugins for the build system only
         build ":tomcat:7.0.55"
+        compile ':bie-plugin:1.0-SNAPSHOT'
         compile ':cache:1.1.8'
         compile ':ala-bootstrap3:1.2-SNAPSHOT'
     }
