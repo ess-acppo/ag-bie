@@ -6,4 +6,5 @@ a i { color:#C44D34; }
 .header-inner h1 { margin-bottom: 10px; }
 .header-inner h2 { font-size: 1.5em; margin-bottom: 0px; }
 .tab-content { border:none; padding-left:0; padding-right:0;}
-.tab-pane {padding: 0;}
+.tab-pane { padding: 0; }
+.taxonomy-bcrumb li { padding-left: 28px; }
