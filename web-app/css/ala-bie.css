@@ -8,3 +8,4 @@ a i { color:#C44D34; }
 .tab-content { border:none; padding-left:0; padding-right:0;}
 .tab-pane { padding: 0; }
 .taxonomy-bcrumb li { padding-left: 28px; }
+.panel-body img { margin:0; !important; }
