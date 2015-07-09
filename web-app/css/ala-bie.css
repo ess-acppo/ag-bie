@@ -1,0 +1,9 @@
+/** Temporary CSS hacks - awaiting review by Adam */
+p,li,ul{color:#637073;font-size:15px;font-weight:200;line-height:1.6em;}
+#main { padding-top: 0px; }
+a i { color:#C44D34; }
+
+.header-inner h1 { margin-bottom: 10px; }
+.header-inner h2 { font-size: 1.5em; margin-bottom: 0px; }
+.tab-content { border:none; padding-left:0; padding-right:0;}
+.tab-pane {padding: 0;}
