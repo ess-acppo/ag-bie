@@ -18,6 +18,9 @@ println "default_config = ${default_config}"
 
 skin.layout = "ala"
 skin.fluidLayout = false
+bie.baseURL = "http://localhost:8091/ala-bie"
+bie.searchPath = "http://localhost:8091/ala-bie/search"
+grails.serverURL = "http://localhost:8091/ala-bie"
 
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
 grails.mime.disable.accept.header.userAgents = ['Gecko', 'WebKit', 'Presto', 'Trident']
