@@ -6,9 +6,11 @@ grails.project.work.dir = "target/work"
 grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 
-//grails.plugin.location."bie-plugin" = "../bie-plugin"
-//grails.plugin.location."ala-bootstrap3" = "../ala-bootstrap3"
-//grails.project.war.file = "target/${appName}-${appVersion}.war"
+// settings for the inline fieldcapture-plugin
+if (Environment.current == Environment.DEVELOPMENT) {
+    grails.plugin.location."bie-plugin" = "../bie-plugin"
+    grails.plugin.location."ala-bootstrap3" = "../ala-bootstrap3"
+}
 
 grails.project.fork = [
         test: false,
@@ -33,18 +35,18 @@ grails.project.dependency.resolution = {
         }
     }
 
-    dependencies {
-    }
+    dependencies {}
 
     plugins {
-        build(":release:3.0.1",
-                ":rest-client-builder:2.0.3") {
+        build(":release:3.0.1", ":rest-client-builder:2.0.3") {
             export = false
         }
         // plugins for the build system only
         build ":tomcat:7.0.55"
         compile ':cache:1.1.8'
-        compile ':bie-plugin:1.0-SNAPSHOT'
-        compile ':ala-bootstrap3:1.2'
+        if (Environment.current != Environment.DEVELOPMENT) {
+            compile ':bie-plugin:1.0-SNAPSHOT'
+            compile ':ala-bootstrap3:1.2.1'
+        }
     }
 }
