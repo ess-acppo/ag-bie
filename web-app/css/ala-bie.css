@@ -1,11 +1,18 @@
 /** Temporary CSS hacks - awaiting review by Adam */
-p,li,ul{color:#637073;font-size:15px;font-weight:200;line-height:1.6em;}
+p,li,ul{ font-size:15px;font-weight:200;line-height:1.6em; }
 #main { padding-top: 0px; }
-a i { color:#C44D34; }
-
+a i {  }
 .header-inner h1 { margin-bottom: 10px; }
 .header-inner h2 { font-size: 1.5em; margin-bottom: 0px; }
 .tab-content { border:none; padding-left:0; padding-right:0;}
 .tab-pane { padding: 0; }
 .taxonomy-bcrumb li { padding-left: 28px; }
 .panel-body img { margin:0; !important; }
+
+
+/** changes for AoLS */
+.pg-header { margin-top: 20px; }
+.main-content { padding-left:0px; padding-right:0px; }
+#main { padding-left: 0px; }
+.tab-content { padding-top: 15px; }
+.taxonomy-bcrumb { background-color: transparent; }
