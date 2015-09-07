@@ -17,6 +17,7 @@ println "[${appName}] (*) grails.config.locations = ${grails.config.locations}"
 println "default_config = ${default_config}"
 
 skin.layout = "ala"
+skin.orgNameLong = "Atlas of Living Australia"
 skin.fluidLayout = false
 bie.baseURL = "http://localhost:8091/ala-bie"
 bie.searchPath = "http://localhost:8091/ala-bie/search"
