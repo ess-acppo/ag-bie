@@ -1,3 +1,5 @@
+import org.apache.log4j.Level
+
 grails.project.groupId = "au.org.ala" // change this to alter the default package name and Maven publishing destination
 
 grails.appName = "${appName}"
@@ -19,8 +21,9 @@ println "default_config = ${default_config}"
 skin.layout = "ala"
 skin.orgNameLong = "Atlas of Living Australia"
 skin.fluidLayout = false
-bie.baseURL = "http://localhost:8091/ala-bie"
-bie.searchPath = "http://localhost:8091/ala-bie/search"
+bie.baseURL = "http://localhost:8080/ala-bie"
+bie.searchPath = "http://localhost:8080/ala-bie/search"
+bie.index.url = "http://localhost:8090/bie-index"
 grails.serverURL = "http://localhost:8091/ala-bie"
 
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
@@ -40,6 +43,7 @@ grails.mime.types = [ // the first one is the default format
     hal:           ['application/hal+json','application/hal+xml'],
     xml:           ['text/xml', 'application/xml']
 ]
+grails.mime.file.extensions = false // ignore dots in path
 
 // URL Mapping Cache Max Size, defaults to 5000
 //grails.urlmapping.cache.maxsize = 1000
@@ -106,22 +110,39 @@ environments {
 }
 
 // log4j configuration
-log4j.main = {
-    // Example of changing the log pattern for the default console appender:
-    //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
+def loggingDir = (System.getProperty('catalina.base') ? System.getProperty('catalina.base') + '/logs' : './logs')
 
-    error  'org.codehaus.groovy.grails.web.servlet',        // controllers
-           'org.codehaus.groovy.grails.web.pages',          // GSP
-           'org.codehaus.groovy.grails.web.sitemesh',       // layouts
-           'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
-           'org.codehaus.groovy.grails.web.mapping',        // URL mapping
-           'org.codehaus.groovy.grails.commons',            // core / classloading
-           'org.codehaus.groovy.grails.plugins',            // plugins
-           'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
-           'org.springframework',
-           'org.hibernate',
-           'net.sf.ehcache.hibernate'
+log4j = {
+    appenders {
+        environments {
+            production {
+                println "BIE index logs will be written to : ${loggingDir}"
+                rollingFile name: "tomcatLog", maxFileSize: '1MB', file: "${loggingDir}/${appName}.log", threshold: Level.INFO, layout: pattern(conversionPattern: "%d %-5p [%c{1}] %m%n")
+            }
+            development {
+                console name: "stdout", layout: pattern(conversionPattern: "%d %-5p [%c{1}] %m%n"), threshold: Level.DEBUG
+            }
+            test {
+                console name: "stdout", layout: pattern(conversionPattern: "%d %-5p [%c{1}] %m%n"), threshold: Level.DEBUG
+            }
+        }
+    }
+    root {
+        // change the root logger to my tomcatLog file
+        error 'tomcatLog'
+        warn 'tomcatLog'
+        additivity = true
+    }
+
+    error   'au.org.ala.cas.client',
+            "au.org.ala",
+            'grails.spring.BeanBuilder',
+            'grails.plugin.webxml',
+            'grails.plugin.cache.web.filter',
+            'grails.app.services.org.grails.plugin.resource',
+            'grails.app.taglib.org.grails.plugin.resource',
+            'grails.app.resourceMappers.org.grails.plugin.resource'
+
+    debug   "grails.app",
+            "au.org.ala"
 }
