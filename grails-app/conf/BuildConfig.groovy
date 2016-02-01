@@ -8,13 +8,16 @@ grails.project.source.level = 1.6
 //
 //// settings for the inline fieldcapture-plugin
 //if (Environment.current == Environment.DEVELOPMENT) {
-//    grails.plugin.location."bie-plugin" = "../bie-plugin"
-//    grails.plugin.location."ala-bootstrap3" = "../ala-bootstrap3"
+    grails.plugin.location."bie-plugin" = "../bie-plugin"
+    grails.plugin.location."ala-bootstrap3" = "../ala-bootstrap3"
 //}
 
+forkConfig = [maxMemory: 1024, minMemory: 64, debug: false, maxPerm: 256]
 grails.project.fork = [
-        test: false,
-        run: false
+        test: forkConfig, // configure settings for the test-app JVM
+        run: forkConfig, // configure settings for the run-app JVM
+        war: forkConfig, // configure settings for the run-war JVM
+        console: forkConfig // configure settings for the Swing console JVM ]
 ]
 
 grails.project.dependency.resolver = "maven" // or ivy
@@ -44,7 +47,7 @@ grails.project.dependency.resolution = {
         // plugins for the build system only
         build ":tomcat:7.0.55"
         compile ':cache:1.1.8'
-        compile ':bie-plugin:1.0'
-        compile ':ala-bootstrap3:1.5'
+        //compile ':bie-plugin:1.0'
+        //compile ':ala-bootstrap3:1.5'
     }
 }

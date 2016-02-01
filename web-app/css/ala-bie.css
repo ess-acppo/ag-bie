@@ -1,8 +1,5 @@
 /** Temporary CSS hacks - awaiting review by Adam */
-html > body {
-    background-color:#FFFFFF;
-    padding-top: 60px;
-}
+
 p,li,ul{ font-size:15px;font-weight:200;line-height:1.6em; }
 #main { padding-top: 0px; }
 a i {  }
@@ -22,7 +19,7 @@ a i {  }
 .taxonomy-bcrumb { background-color: transparent; }
 
 #related-searches {
-    margin-top: -25px;
+    margin-top: -10px;
 }
 
 #related-searches h4 {
@@ -38,3 +35,4 @@ a i {  }
 }
 a > i{color:inherit;}
 a > i:hover{color:inherit;}
+

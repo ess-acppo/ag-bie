@@ -25,6 +25,8 @@ bie.baseURL = "http://localhost:8080/ala-bie"
 bie.searchPath = "http://localhost:8080/ala-bie/search"
 bie.index.url = "http://localhost:8090/bie-index"
 grails.serverURL = "http://localhost:8091/ala-bie"
+facets = "idxtype,rank,imageAvailable,speciesGroup,conservationStatusAUS_s,conservationStatusACT_s,conservationStatusNSW_s,conservationStatusQLD_s,conservationStatusVIC_s,conservationStatusTAS_s,conservationStatusSA_s,conservationStatusWA_s,conservationStatusNT_s"
+
 
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
 grails.mime.disable.accept.header.userAgents = ['Gecko', 'WebKit', 'Presto', 'Trident']
@@ -102,6 +104,7 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+        grails.resources.debug = true
     }
     production {
         grails.logging.jul.usebridge = false

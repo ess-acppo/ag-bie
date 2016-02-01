@@ -1,6 +1,6 @@
 modules = {
     ala_bie {
-        dependsOn 'bie'
+        dependsOn 'bie, ala'
         resource url: [dir: 'css', file: 'ala-bie.css'], attrs: [media: 'screen, projection, print']
     }
 }
