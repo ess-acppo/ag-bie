@@ -8,8 +8,8 @@ grails.project.source.level = 1.6
 //
 //// settings for the inline fieldcapture-plugin
 //if (Environment.current == Environment.DEVELOPMENT) {
-    grails.plugin.location."bie-plugin" = "../bie-plugin"
-    grails.plugin.location."ala-bootstrap3" = "../ala-bootstrap3"
+//    grails.plugin.location."bie-plugin" = "../bie-plugin"
+//    grails.plugin.location."ala-bootstrap3" = "../ala-bootstrap3"
 //}
 
 forkConfig = [maxMemory: 1024, minMemory: 64, debug: false, maxPerm: 256]
@@ -47,7 +47,7 @@ grails.project.dependency.resolution = {
         // plugins for the build system only
         build ":tomcat:7.0.55"
         compile ':cache:1.1.8'
-        //compile ':bie-plugin:1.0'
-        //compile ':ala-bootstrap3:1.5'
+        compile ':bie-plugin:1.1'
+        compile ':ala-bootstrap3:1.5'
     }
 }
