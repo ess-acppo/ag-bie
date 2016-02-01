@@ -47,7 +47,7 @@ grails.project.dependency.resolution = {
         // plugins for the build system only
         build ":tomcat:7.0.55"
         compile ':cache:1.1.8'
-        compile ':bie-plugin:1.1'
+        compile ':bie-plugin:1.1-SNAPSHOT'
         compile ':ala-bootstrap3:1.5'
     }
 }
