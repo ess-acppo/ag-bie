@@ -3,7 +3,7 @@ Feature: Species - 4. Header
   Scenario: 1. Breadcrumb trail
     Given  a successful species search and a species
     When  the species results page is displayed
-    Then  a breadcrumb trail consisting of a links to Home, Australian Species and specific species name will be displayed
+    Then  a breadcrumb trail consisting of links to Home, Australian Species and specific species name will be displayed
 
 Scenario: 2. Species Scientific Name
     Given  a successful species search and a species
@@ -23,7 +23,7 @@ Scenario: 4. Record a sighting
 Scenario: 5. Request Email Alert
     Given  a successful species search and a species
     When  the species results page is displayed
-    Then  a breadcrumb trail consisting of a links to Home, Australian Species and specific species name will be displayed
+    Then  a breadcrumb trail consisting of links to Home, Australian Species and specific species name will be displayed
 
 
 
