@@ -38,3 +38,25 @@ a > i:hover{color:inherit;}
 
 #currentTaxonConcept {color:#df4a21;}
 
+.floating-menu {
+    font-family: sans-serif;
+    background: coral;
+    padding: 5px;;
+    width: 260px;
+    z-index: 100;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+}
+
+.floating-menu a,
+.floating-menu h3 {
+    font-size: 0.9em;
+    display: block;
+    margin: 0 0.5em;
+    color: white;
+}
+
+
+
+
