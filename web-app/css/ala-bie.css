@@ -42,7 +42,7 @@ a > i:hover{color:inherit;}
     font-family: sans-serif;
     background: coral;
     padding: 5px;;
-    width: 260px;
+    width: 200px;
     z-index: 100;
     position: fixed;
     bottom: 0px;
