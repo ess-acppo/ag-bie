@@ -25,7 +25,7 @@ bie.baseURL = "http://localhost:8080/ala-bie"
 bie.searchPath = "/search"
 bie.index.url = "http://localhost:8090/bie-index"
 grails.serverURL = "http://localhost:8091/ala-bie"
-facets = "idxtype,rank,isLocatedInHubCountry_b,imageAvailable,speciesGroup,conservationStatusAUS_s,conservationStatusACT_s,conservationStatusNSW_s,conservationStatusQLD_s,conservationStatusVIC_s,conservationStatusTAS_s,conservationStatusSA_s,conservationStatusWA_s,conservationStatusNT_s"
+facets = "idxtype,rank,speciesGroup,locatedInHubCountry,imageAvailable,conservationStatusAUS_s,conservationStatusACT_s,conservationStatusNSW_s,conservationStatusQLD_s,conservationStatusVIC_s,conservationStatusTAS_s,conservationStatusSA_s,conservationStatusWA_s,conservationStatusNT_s"
 
 
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
