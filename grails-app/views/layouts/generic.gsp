@@ -7,7 +7,6 @@
     <meta name="description" content="${grailsApplication.config.skin.orgNameLong?:''}"/>
     <meta name="author" content="${grailsApplication.config.skin.orgNameLong?:''}a">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="http://www.ala.org.au/wp-content/themes/ala2011/images/favicon.ico" rel="shortcut icon"  type="image/x-icon"/>
     <title><g:layoutTitle /> | ${grailsApplication.config.skin.orgNameLong?:''}</title>
     <r:script disposition="head">
 	    var BIE_VARS = { "autocompleteUrl" : "${grailsApplication.config.bie.index.url}/auto"}

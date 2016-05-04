@@ -104,7 +104,7 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        grails.resources.debug = true
+        grails.resources.debug = false //setting this to true breaks charts
     }
     production {
         grails.logging.jul.usebridge = false
