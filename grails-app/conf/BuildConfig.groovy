@@ -50,5 +50,6 @@ grails.project.dependency.resolution = {
         compile ':bie-plugin:1.1-SNAPSHOT'
         compile ':ala-bootstrap3:1.6'
         compile ":build-info:1.2.6"
+        runtime ":ala-admin-plugin:1.2"
     }
 }
