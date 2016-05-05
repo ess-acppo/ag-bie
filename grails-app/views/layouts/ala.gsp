@@ -34,7 +34,7 @@
 <!-- Container -->
 
 <div class="${fluidLayout ? 'container-fluid' : 'container'}" id="main">
-
+    <ala:systemMessage/>
     <g:layoutBody />
 </div><!-- End container #main col -->
 
