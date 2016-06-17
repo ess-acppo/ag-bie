@@ -1,4 +1,5 @@
 <ul>
+    <li><a href="${jsonLink}">JSON (data interchange format)</a></li>
     <li><a href="http://biocache.ala.org.au/occurrences/search?taxa=${tc?.taxonConcept?.nameString}">ALA occurrences</a></li>
     <li><a href="http://www.gbif.org/species/search?q=${tc?.taxonConcept?.nameString}">GBIF</a></li>
     <li><a href="http://eol.org/search?q=${tc?.taxonConcept?.nameString}&show_all=true">Encyclopaedia of Life</a></li>
