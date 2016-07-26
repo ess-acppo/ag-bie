@@ -101,6 +101,10 @@ grails.hibernate.pass.readonly = false
 // configure passing read-only to OSIV session by default, requires "singleSession = false" OSIV mode
 grails.hibernate.osiv.readonly = false
 
+grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
+grails.resources.work.dir = "/data/${appName}/cache/"
+
+
 environments {
     development {
         grails.logging.jul.usebridge = true
