@@ -43,12 +43,12 @@ grails.project.dependency.resolution = {
         }
         // plugins for the build system only
         build ":tomcat:7.0.55"
-        compile ':bie-plugin:1.2.1'
+        compile ':bie-plugin:1.2.2'
         compile ":cache:1.1.8"
         compile ":cache-headers:1.1.6"
         runtime ":resources:1.2.8"
         runtime ":cached-resources:1.0"
-        compile ':ala-bootstrap3:1.6'
+        compile ':ala-bootstrap3:1.6.1'
         runtime ":ala-admin-plugin:1.2"
         runtime(":ala-auth:1.3.1") {
             excludes "servlet-api"
