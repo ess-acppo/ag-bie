@@ -24,7 +24,7 @@
 
   <![endif]-->
 </head>
-<body class="${pageProperty(name:'body.class')} white-bg" id="${pageProperty(name:'body.id')}" onload="${pageProperty(name:'body.onload')}">
+<body class="${pageProperty(name:'body.class')} white-bg" id="${pageProperty(name:'body.id')?:'ala-body'}" onload="${pageProperty(name:'body.onload')}">
 
 <g:set var="fluidLayout" value="${pageProperty(name:'meta.fluidLayout')?:grailsApplication.config.skin?.fluidLayout}"/>
 
