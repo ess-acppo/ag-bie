@@ -18,14 +18,29 @@ if (new File(default_config).exists()) {
 println "[${appName}] (*) grails.config.locations = ${grails.config.locations}"
 println "default_config = ${default_config}"
 
-skin.layout = "ala"
-skin.orgNameLong = "Atlas of Living Australia"
+skin.layout = "agriculture"
+skin.orgNameLong = "Department of Agriculture and Water Resources"
 skin.fluidLayout = false
-bie.baseURL = "http://localhost:8080/ala-bie"
+bie.baseURL = "http://localhost:8080/ag-bie"
 bie.searchPath = "/search"
-bie.index.url = "http://localhost:8090/bie-index"
-grails.serverURL = "http://localhost:8091/ala-bie"
-facets = "idxtype,rank,speciesGroup,locatedInHubCountry,imageAvailable,conservationStatusAUS_s,conservationStatusACT_s,conservationStatusNSW_s,conservationStatusQLD_s,conservationStatusVIC_s,conservationStatusTAS_s,conservationStatusSA_s,conservationStatusWA_s,conservationStatusNT_s"
+bie.index.url = "http://ag-bie.ala.org.au/ws"
+grails.serverURL = "http://localhost:8080/ag-bie"
+biocache.baseURL = ""
+biocacheService.baseURL = ""
+biocacheServiceQueryContext = ""
+bhl.baseURL = ""
+spatial.baseURL = ""
+ala.baseURL = ""
+collectory.baseURL = ""
+regions.baseURL = ""
+speciesList.baseURL = ""
+alerts.baseUrl = ""
+sightings.guidUrl = ""
+show.tabs = "overview,names,classification,literature,gene-seq"
+
+
+//headerAndFooter.baseURL="${bie.baseURL}/ui"
+facets = "idxtype,rank,speciesGroup,locatedInHubCountry"
 
 
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)

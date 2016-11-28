@@ -3,8 +3,8 @@ grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
 grails.project.work.dir = "target/work"
-grails.project.target.level = 1.6
-grails.project.source.level = 1.6
+grails.project.target.level = 1.7
+grails.project.source.level = 1.7
 
 //grails.plugin.location."bie-plugin" = "../bie-plugin"
 //grails.plugin.location."ala-bootstrap3" = "../ala-bootstrap3"
@@ -50,7 +50,7 @@ grails.project.dependency.resolution = {
         runtime ":cached-resources:1.0"
         compile ':ala-bootstrap3:1.6.1'
         runtime ":ala-admin-plugin:1.2"
-        runtime(":ala-auth:1.3.1") {
+        runtime(":ala-auth:1.3.4") {
             excludes "servlet-api"
         }
     }
