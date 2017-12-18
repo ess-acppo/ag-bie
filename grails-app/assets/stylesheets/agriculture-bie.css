@@ -326,6 +326,18 @@ button, input[type="submit"] {
     color: #ffffff;
 }
 
+/* Tabs */
+.nav-tabs {
+    border-bottom: 1px solid #999;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    border: 1px solid #999;
+    border-bottom-color: transparent;
+}
+
 /* Search result: Refine results */
 .refine-box {padding-left: 0; padding-right: 0;}
 .refine-box h2 {font-size: 24px; line-height: 29px; margin: 0; padding-left: 19px; padding-right: 19px;}
