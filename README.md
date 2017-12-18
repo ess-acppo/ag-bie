@@ -1,4 +1,4 @@
-###    [![Build Status](https://travis-ci.org/ess-acppo/ag-bie.svg?branch=master)](https://travis-ci.org/AtlasOfLivingAustralia/ala-bie)
+###    [![Build Status](https://travis-ci.org/ess-acppo/ag-bie.svg?branch=master)](https://travis-ci.org/ess-acppo/ag-bie)
 
 This is the DAWR version of the BIE front end.
 For more details on the architecture see [BIE index](http://github.com/AtlasOfLivingAustralia/bie-index)
