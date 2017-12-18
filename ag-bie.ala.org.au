@@ -17,8 +17,8 @@ nameindex_datestamp=20170927
 ala_nameindex_source_url=http://ala-starr.it.csiro.au/archives/nameindexes
 
 tomcat_java_opts = -Xmx2g -Xms2g -XX:MaxPermSize=1g -Xss512k -Djava.awt.headless=true
-bie_hub_version = 0.2
-bie_index_version = 1.4.1-SNAPSHOT
+bie_hub_version = 0.3
+bie_index_version = 1.4.1.1
 
 local_repo_dir=~/.ala
 data_dir=/data
