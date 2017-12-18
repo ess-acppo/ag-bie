@@ -1,0 +1,19 @@
+# DEWR BIE
+- hosts: ag-bie
+  roles:
+    - common
+    - java8
+    - webserver
+    - tomcat7-java8
+    - mysql-5.7
+    - jenkins
+    - bie-hub
+    - bie-index
+    - solr
+    - biocache-properties
+    - namedata
+    - nameindex
+    - cas2
+    - apikey
+    - userdetails
+  become: yes

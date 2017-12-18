@@ -7,12 +7,13 @@
     <meta name="description" content="${grailsApplication.config.skin.orgNameLong?:''}"/>
     <meta name="author" content="${grailsApplication.config.skin.orgNameLong?:''}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><g:layoutTitle /> | ${grailsApplication.config.skin.orgNameLong?:''}</title>
-    <r:script disposition="head">
+    <title><g:layoutTitle /></title>
+    <script type="text/javascript">
 	    var BIE_VARS = { "autocompleteUrl" : "${grailsApplication.config.bie.index.url}/auto"}
-    </r:script>
-    <r:require modules="bie, core, font-awesome, agriculture_bie"/>
-    <r:layoutResources/>
+    </script>
+    <asset:javascript src="application.js"/>
+    <asset:stylesheet src="application.css"/>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
     <g:layoutHead />
     <hf:head />
 </head>
@@ -60,7 +61,6 @@
         </ul>
     </div>
 </footer>
-<!-- JS resources-->
-<r:layoutResources disposition="defer"/>
+<asset:deferredScripts/>
 </body>
 </html>
