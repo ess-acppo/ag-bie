@@ -1,0 +1,85 @@
+- name: ensure appropriate CAS skin
+  lineinfile:
+    path: "{{data_dir}}/cas/config/cas.properties"
+    regexp: "^{{ item.key }}="
+    line: "{{ item.key }}={{ item.value }}"
+  with_items:
+    - key: "skin.layout"
+      value: "{{ cas_skin }}"
+    - key: "skin.orgNameLong"
+      value: "{{ skin_orgNameLong }}"
+    - key: "skin.orgNameShort"
+      value: "{{ skin_appname }}"
+    - key: "skin.allowRegister"
+      value: "{{ cas_allow_register }}"
+    - key: "skin.homePage"
+      value: "{{ ala_base_url }}"
+    - key: "skin.identityProviders"
+      value: "{{ cas_identity_providers }}"
+  notify:
+    - restart tomcat
+  tags:
+    - ag-bie-cas-config
+
+- name: Ensure certificate dir
+  file:
+    path: "{{ ssl_certificate_server_dir}}"
+    state: directory
+  tags:
+    - ag-bie-cas-config
+    - self-signed
+
+- name: Test for existing certificate
+  stat:
+    path: "{{ ssl_certificate_server_dir}}/{{ ssl_cert_file }}"
+  register: sscert
+  tags:
+    - ag-bie-cas-config
+    - self-signed
+
+- name: Generate a key pair
+  shell: keytool -genkeypair -alias "{{ server_name }}" -keyalg RSA -sigalg SHA1WithRSA -dname "CN={{ server_name }}, O={{ skin_appname }}" -validity 365 -storetype PKCS12 -keystore "{{ java_temp_keystore }}" -storepass "{{ java_cacert_password }}"
+  when: not sscert.stat.exists
+  tags:
+    - ag-bie-cas-config
+    - self-signed
+
+- name: Export certificate key
+  shell: openssl pkcs12 -in "{{ java_temp_keystore }}" -passin "pass:{{ java_cacert_password }}" -nokeys -out "{{ ssl_certificate_server_dir}}/{{ ssl_cert_file }}"
+  notify: restart nginx
+  when: not sscert.stat.exists
+  tags:
+    - ag-bie-cas-config
+    - self-signed
+
+- name: Export private key
+  shell: openssl pkcs12 -in "{{ java_temp_keystore }}" -passin "pass:{{ java_cacert_password }}" -nodes -nocerts -out "{{ ssl_certificate_server_dir}}/{{ ssl_key_file }}"
+  notify: restart nginx
+  when: not sscert.stat.exists
+  tags:
+    - ag-bie-cas-config
+    - self-signed
+
+- name: Add to java cacerts
+  shell: keytool -importkeystore -srckeystore "{{ java_temp_keystore }}" -srcstoretype PKCS12 -srcstorepass "{{ java_cacert_password }}" -destkeystore "{{ java_cacert_path }}" -deststorepass "{{ java_cacert_password }}" -noprompt
+  when: not sscert.stat.exists
+  tags:
+    - ag-bie-cas-config
+    - self-signed
+
+- name: Private key private
+  file:
+    path: "{{ ssl_certificate_server_dir}}/{{ ssl_key_file }}"
+    mode: 0600
+  tags:
+    - ag-bie-cas-config
+    - self-signed
+
+
+
+
+
+
+
+
+

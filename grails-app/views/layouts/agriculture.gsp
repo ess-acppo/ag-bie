@@ -34,7 +34,7 @@
                     <li><a href="http://agriculture.gov.au/languages">Languages</a></li>
                 </ul>
                 <!-- .top-links  -->
-                <form class="navbar-form" role="search" action="search" method="get">
+                <form class="navbar-form" role="search" action="/search" method="get">
                   <input id="nav-search" class="form-control ac_input general-search" name="q" type="text" placeholder="Name..." autocomplete="off">
                 </form>
             </div>

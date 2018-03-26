@@ -1,0 +1,59 @@
+- include_role:
+    name: common
+    tasks_from: setfacts
+  vars:
+    artifactId: "ala-name-matching"
+    classifier: 'distribution'
+    packaging: "zip"
+    version: "2.4.6"
+    groupId: "au.org.ala"
+  tags:
+    - nsl
+
+- name: ensure name-processing directory exists
+  file:
+    path: "{{name_processing_install_dir}}"
+    state: directory
+  tags:  
+    - "name-processing"
+
+- name: install unzip (Debian only)
+  apt: pkg=unzip state=present
+  when: ansible_os_family == "Debian"
+
+
+- name: Download name matching distribution zip
+  get_url:
+    url: "{{maven_repo_ws_url}}"
+    dest: "{{name_processing_install_dir}}/ala-name-matching.zip" 
+    force: yes
+  tags:  
+    - "name-processing"
+
+- name: unzip name matching code job
+  unarchive:
+    src: "{{name_processing_install_dir}}/ala-name-matching.zip"
+    dest: "{{name_processing_install_dir}}"
+    owner: jenkins
+    group: jenkins
+    remote_src: true
+  tags:
+    - nsl
+
+- name: copy shell wrapper and configuration files
+  copy:
+    src: "ala-name-matching/"
+    dest: "{{name_processing_install_dir}}"
+    owner: jenkins
+    group: jenkins
+  tags:
+    - "name-processing"
+
+- name: make the shell wrapper runnable
+  file:
+    path: "{{name_processing_install_dir}}/build-combined.sh"
+    mode: a+x
+  tags:
+    - nsl
+
+

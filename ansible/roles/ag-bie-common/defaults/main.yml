@@ -1,0 +1,15 @@
+# Install directories
+processing_install_dir: "{{ data_dir }}/processing"
+work_install_dir: "{{ data_dir }}/work"
+archive_install_dir: "{{ data_dir }}/archive"
+name_processing_install_dir: "{{ processing_install_dir }}/ala-name-matching"
+nsl_dwca_install_dir: "{{processing_install_dir}}/NSL"
+nsl_job_name: "NSL_Package_DwCA"
+taxxas_dwca_install_dir: "{{processing_install_dir}}/TaxxaS"
+taxxas_job_name: "TaxxaS_Package_DwCA"
+config_install_dir: "{{ processing_install_dir }}/config"
+
+# User information
+ag_bie_user: dawr
+
+

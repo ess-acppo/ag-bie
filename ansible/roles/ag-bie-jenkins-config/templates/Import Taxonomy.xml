@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Load a combined tazonomy into the BIE&#xd;
+&#xd;
+The combined taxonomy starts at /data/work/taxxas/combined</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/sh -x
+bail() {
+  echo 1&gt;&amp;2 $*
+  exit 1
+}
+
+# Configuration
+configDir=&quot;{{ config_install_dir }}&quot;
+workDir=&quot;{{ combined_work_install_dir }}&quot;
+combined=&quot;${workDir}/combined&quot;
+importGroup=tomcat7
+bieImportDir=&quot;/data/bie/import/combined&quot;
+bieIndexUrl=&quot;http://localhost:8080/ws&quot;
+bieIndexServer=&quot;{{ server_name }}&quot;
+
+[ -d &quot;${combined}&quot; ] || bail &quot;Cant find combined DwCA at ${combined}&quot;
+
+# Copy result to bie import area and make importable by tomcat7
+[ -d &quot;${bieImportDir}&quot; ] &amp;&amp; ( rm -rf &quot;${bieImportDir}&quot; || bail &quot;Unable to delete ${bieImportDir}&quot; )
+cp -pr &quot;${combined}&quot; &quot;${bieImportDir}&quot; || bail &quot;Unable to copy to ${bieImportDir}&quot;
+chgrp &quot;${importGroup}&quot; &quot;${bieImportDir}&quot; || bail &quot;Unable to make ${bieImportDir} group ${importGroup}&quot;
+chmod g+w &quot;${bieImportDir}&quot; || bail &quot;Unable to make ${bieImportDir} group writable&quot;
+
+
+# Trigger BIE import
+result=`curl -X GET -f --header &quot;Host: ${bieIndexServer}&quot; &quot;${bieIndexUrl}/admin/services/all&quot;`
+if [ $? -ne 0 ]; then
+ bail &quot;Unable to trigger import&quot;
+fi 
+ok=`echo &quot;$result&quot; | jq .success`
+if [ &quot;$ok&quot; != true ]; then
+ bail &quot;Import trigger failed&quot;
+fi
+job=`echo &quot;$result&quot; | jq -r .id`
+if [ -z &quot;$job&quot; ]; then
+ bail &quot;No job number&quot;
+fi
+echo &quot;Import job is ${job}&quot;
+count=100
+while [ &quot;$count&quot; -gt 0 ]; do
+ status=`curl -X GET -f --header &quot;Host: ${bieIndexServer}&quot; &quot;${bieIndexUrl}/admin/services/status/$job&quot;` || bail &quot;Can&apos;t get job status&quot;
+ success=`echo &quot;$status&quot; | jq .success`
+ active=`echo &quot;$status&quot; | jq .active`
+ lifecycle=`echo &quot;$status&quot; | jq .lifecycle`
+ message=`echo &quot;$status&quot; | jq .message`
+ echo &quot;Status active=${active} lifecycle=${lifecycle} success=${success} message=${message}&quot;
+ if [ &quot;$active&quot; != true ]; then
+   if [ &quot;$success&quot; != true ]; then
+     echo &quot;Import failed!&quot;
+     exit 2
+   fi
+   echo &quot;Import completed successfully&quot;
+   exit 0
+ fi
+ count=`expr $count - 1`
+ sleep 60
+done
+echo &quot;Timed out waiting for import to complete&quot;
+exit 3
+
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

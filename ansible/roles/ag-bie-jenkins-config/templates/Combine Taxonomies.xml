@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Combine the TaxxaS and NSL taxonomy&#xd;
+&#xd;
+The source data is from the two DwC directories</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>datestamp</name>
+          <description>The datestamp in YYYYMMDD form</description>
+          <defaultValue>YYYYMMDD</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/sh -x
+bail() {
+  echo 1&gt;&amp;2 $*
+  exit 1
+}
+
+# Configuration
+configDir=&quot;{{ config_install_dir }}&quot;
+workDir=&quot;{{ combined_work_install_dir }}&quot;
+taxxasDir=&quot;{{ taxxas_work_install_dir }}&quot;
+nslDir=&quot;{{ nsl_work_install_dir }}&quot;
+combineDir=&quot;{{ name_processing_install_dir }}&quot;
+combineCmd=&quot;build-combined.sh&quot;
+combinedDir=&quot;${workDir}/combined_${datestamp}&quot;
+combined=&quot;${workDir}/combined&quot;
+archiveDir=&quot;{{ archive_install_dir }}&quot;
+
+# Clear work area
+rm &quot;${combined}&quot;/*
+
+# Combine DwCAs
+cd &quot;${combineDir}&quot; || bail &quot;Uable to get to process directory ${combineDir}&quot;
+./build-combined.sh -c &quot;${configDir}/taxxas-taxon-config.json&quot; -w &quot;${workDir}&quot; -o &quot;${combined}&quot;  &quot;${taxxasDir}/DwC/&quot; &quot;${nslDir}/DwC/&quot;
+if [ $? -ne 0 ]; then
+ bail &quot;Unable to combine taxonomies&quot;
+fi
+
+# Archive result
+[ -d &quot;${archiveDir}&quot; ] || mkdir -p &quot;${archiveDir}&quot; || bail &quot;Unable to create ${archiveDir}&quot;
+cd &quot;${combined}&quot; || bail &quot;Unable to move to ${combined}&quot;
+zip &quot;${archiveDir}/combined_${datestamp}.zip&quot; *
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

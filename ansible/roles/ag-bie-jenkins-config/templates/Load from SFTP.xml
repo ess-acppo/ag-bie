@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Download the taxxas taxonomy from SFTP and then trigger a process and load.&#xd;
+&#xd;
+Files on SFTP are assumed to be of the sftp://dawr@upload.ala.org.au directory with the following names&#xd;
+&#xd;
+tblBiota_YYYYMMDD.csv&#xd;
+tlbBiotaAssociate_YYYYMMDD.csv&#xd;
+tlbCommonName_YYYYMMDD.csv</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>datestamp</name>
+          <description>The datestamp in YYYYMMDD form</description>
+          <defaultValue>YYYYMMDD</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/sh -x
+bail() {
+  echo 1&gt;&amp;2 $*
+  exit 1
+}
+
+# Configuration
+username={{ ag_bie_user }}
+configDir=&quot;{{ config_install_dir }}&quot;
+workDir=&quot;{{ taxxas_work_install_dir }}&quot;
+sourceDir=&quot;${workDir}/${datestamp}&quot;
+credentials=&quot;${configDir}/.ssh/${username}.pem&quot;
+sftpServer=&quot;upload.ala.org.au&quot;
+
+# Retrieve from server
+[ -d &quot;${sourceDir}&quot; ] || mkdir -p &quot;${sourceDir}&quot; || bail &quot;Unable to create source directory ${sourceDir}&quot;
+cd &quot;${sourceDir}&quot; || bail &quot;Unable to access source directory ${sourceDir}&quot;
+rm -rf * || bail &quot;Unable to clear source directory ${sourceDir}&quot;
+tblBiota=&quot;tblBiota_${datestamp}.csv&quot;
+sftp -i &quot;${credentials}&quot; &quot;${username}@${sftpServer}:${tblBiota}&quot; || bail &quot;Unable to retrieve ${tblBiota}&quot;
+tblBiotaAssociate=&quot;tblBiotaAssociate_${datestamp}.csv&quot;
+sftp -i &quot;${credentials}&quot; &quot;${username}@${sftpServer}:${tblBiotaAssociate}&quot; || bail &quot;Unable to retrieve ${tblBiotaAssociate}&quot;
+tblCommonName=&quot;tblCommonName_${datestamp}.csv&quot;
+sftp -i &quot;${credentials}&quot; &quot;${username}@${sftpServer}:${tblCommonName}&quot; || bail &quot;Unable to retrieve ${tblCommonName}&quot;
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.parameterizedtrigger.BuildTrigger plugin="parameterized-trigger@2.35.2">
+      <configs>
+        <hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.CurrentBuildParameters/>
+          </configs>
+          <projects>Process TaxxaS Source Data</projects>
+          <condition>SUCCESS</condition>
+          <triggerWithNoParameters>false</triggerWithNoParameters>
+          <triggerFromChildProjects>false</triggerFromChildProjects>
+        </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+      </configs>
+    </hudson.plugins.parameterizedtrigger.BuildTrigger>
+  </publishers>
+  <buildWrappers/>
+</project>

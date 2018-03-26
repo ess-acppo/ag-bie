@@ -1,0 +1,16 @@
+<metadata code="DAWR-NSL" date="2016-07-13">
+  <title>Department of Agriculture and Water Resources Taxonomic Data</title>
+  <organization>
+    <organizationName>Department of Agriculture and Water Resources</organizationName>
+    <electronicMailAddress>http://agriculture.gov.au/general-inquiries</electronicMailAddress>
+    <onlineUrl>http://agriculture.gov.au</onlineUrl>
+  </organization>
+  <description>Data from the Department of Agriculture and Water Resources NSL Taxonomy, transformed into DwCA Taxon format, for loading into the DAWR name indexes.</description>
+  <geographicCoverage>
+    <geographicDescription>World</geographicDescription>
+  </geographicCoverage>
+  <taxonomicCoverage>
+    <generalTaxonomicCoverage>Covers all kingdoms containing taxa of interest to DAWR</generalTaxonomicCoverage>
+  </taxonomicCoverage>
+  <citation>Department of Agriculture and Water Resources NSL</citation>
+</metadata>

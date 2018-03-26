@@ -1,0 +1,59 @@
+- include_role:
+    name: common
+    tasks_from: setfacts
+  vars:
+    version: "0.1"
+    artifactId: "taxxas-dwca"
+    classifier: "distribution"
+    groupId: "com.oztaxa.talend"
+    packaging: "zip"
+  tags:
+    - taxxas
+
+- name: clean processing path
+  file:
+    path: "{{ taxxas_dwca_install_dir }}"
+    state: absent
+  tags:
+    - taxxas
+
+- name: ensure taxxas processing path exists
+  file:
+    path: "{{ taxxas_dwca_install_dir }}"
+    state: directory
+    owner: jenkins
+    group: jenkins
+  tags:
+    - taxxas
+
+- name: copy taxxas processing job zip
+  get_url:
+    url: "{{maven_repo_ws_url}}"
+    dest: "{{taxxas_dwca_install_dir}}/taxxas-dwca.zip"
+    force: yes
+    timeout: 240
+  tags:
+    - taxxas
+
+- name: install unzip (Debian only)
+  apt: pkg=unzip state=present
+  when: ansible_os_family == "Debian"
+  tags:
+    - taxxas  
+
+- name: unzip processing job
+  unarchive:
+    src: "{{taxxas_dwca_install_dir}}/taxxas-dwca.zip"
+    dest: "{{taxxas_dwca_install_dir}}"
+    owner: jenkins
+    group: jenkins
+    remote_src: true
+  tags:
+    - taxxas
+
+- name: make the processing job runnable
+  file:
+    path: "{{taxxas_dwca_install_dir}}/{{taxxas_job_name}}/{{taxxas_job_name}}_run.sh"
+    mode: a+x
+  tags:
+    - taxxas

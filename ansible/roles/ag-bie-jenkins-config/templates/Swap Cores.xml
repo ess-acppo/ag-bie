@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Swap the bie and bie-offline cores in solr, making the recently constucted bie-offline core the new working core and the data from the current bie core offline.</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/sh -x
+bail() {
+  echo 1&gt;&amp;2 $*
+  exit 1
+}
+
+# Configuration
+solrUrl=&quot;http://localhost:8080/solr&quot;
+core1=bie
+core2=bie-offline
+
+# Swap cores
+curl -X GET -f &quot;${solrUrl}/admin/cores?action=SWAP&amp;core=${core1}&amp;other=${core2}&quot; || bail &quot;Unable to swap cores&quot;
+
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

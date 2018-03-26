@@ -1,0 +1,15 @@
+# Install directories
+nsl_work_install_dir: "{{work_install_dir}}/NSL"
+taxxas_work_install_dir: "{{work_install_dir}}/TaxxaS"
+combined_work_install_dir: "{{work_install_dir}}/combined"
+tmp_dir: "{{work_install_dir}}/tmp"
+jenkins_home: /var/lib/jenkins
+jenkins_admin_user: admin
+jenkins_admin_password: password
+jenkins_jobs:
+  - "Combine Taxonomies"
+  - "Import Taxonomy"
+  - "Load from SFTP"
+  - "Process NSL Source Data"
+  - "Process Taxxas Source Data"
+  - "Swap Cores"

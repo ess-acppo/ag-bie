@@ -1,0 +1,248 @@
+{
+  "id": "TaxxaS-Combined",
+  "name": "TaxxaS Combined Taxonomy",
+  "description": "Resolved taxonomy built from  speices lists",
+  "contact": {
+    "organization": "Department of Agriculture and Water Resources",
+    "email": [ "info@agriculture.org.au" ]
+  },
+  "nameAnalyserClass" : "au.org.ala.names.index.ALANameAnalyser",
+  "resolverClass" : "au.org.ala.names.index.ALATaxonResolver",
+  "acceptedCutoff": 500,
+  "providers" : [
+    {
+      "id" : "default",
+      "name": "default",
+      "description": "Top-level provider for default adjustments",
+      "external": false,
+      "defaultScore" : 0,
+      "adjuster": {
+        "forbidden": [
+          {
+            "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+            "taxonomicStatus": "INCERTAE_SEDIS"
+          },
+          {
+            "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+            "taxonomicStatus": "INVALID"
+          },
+          {
+            "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+            "taxonomicStatus": "INFERRED_INVALID"
+          }
+        ],
+        "adjustments": [
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "taxonomicStatus": "INFERRED_ACCEPTED"
+            },
+            "adjustment": -100
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "taxonomicStatus": "INFERRED_SYNONYM"
+            },
+            "adjustment": -110
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "taxonomicStatus": "MISCELLANEOUS_LITERATURE"
+            },
+            "adjustment": -200
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "taxonomicStatus": "UNPLACED"
+            },
+            "adjustment": -300
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "taxonomicStatus": "INFERRED_UNPLACED"
+            },
+            "adjustment": -310
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "taxonomicStatus": "DOUBTFUL"
+            },
+            "adjustment": -400
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "taxonomicStatus": "MISAPPLIED"
+            },
+            "adjustment": -410
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "taxonomicStatus": "EXCLUDED"
+            },
+            "adjustment": -500
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "taxonomicStatus": "INVALID"
+            },
+            "adjustment": -600
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "taxonomicStatus": "INFERRED_INVALID"
+            },
+            "adjustment": -610
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nameType": "HYBRID"
+            },
+            "adjustment": -100
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nameType": "CULTIVAR"
+            },
+            "adjustment": -100
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nameType": "INFORMAL"
+            },
+            "adjustment": -110
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nameType": "CANDIDATUS"
+            },
+            "adjustment": -200
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nameType": "DOUBTFUL"
+            },
+            "adjustment": -200
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nameType": "PLACEHOLDER"
+            },
+            "adjustment": -200
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nameType": "NO_NAME"
+            },
+            "adjustment": -1000
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nomenclaturalStatus": "ALTERNATIVE"
+            },
+            "adjustment": -10
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nomenclaturalStatus": "PROVISIONAL"
+            },
+            "adjustment": -10
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nomenclaturalStatus": "DOUBTFUL"
+            },
+            "adjustment": -20
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nomenclaturalStatus": "FORGOTTEN"
+            },
+            "adjustment": -20
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nomenclaturalStatus": "ORTHOGRAPHIC_VARIANT"
+            },
+            "adjustment": -10
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nomenclaturalStatus": "REJECTED"
+            },
+            "adjustment": -20
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nomenclaturalStatus": "ILLEGITIMATE"
+            },
+            "adjustment": -20
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nomenclaturalStatus": "INVALID"
+            },
+            "adjustment": -10
+          },
+          {
+            "condition": {
+              "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+              "nomenclaturalStatus": "DENIED"
+            },
+            "adjustment": -10
+          }
+        ]
+      }
+    },
+    {
+      "id" : "naqs",
+      "name": "NAQS",
+      "parent": "default",
+      "rightsHolder": "Department of Agriculture and Water Resources",
+      "licence": "Proprietory",
+      "defaultScore" : 4000
+    },
+    {
+      "id" : "naqs-nsl",
+      "name": "NAQS NSL",
+      "parent": "default",
+      "rightsHolder": "Department of Agriculture and Water Resources",
+      "licence": "Proprietory",
+      "defaultScore" : 5000
+    },
+    {
+      "id" : "inference",
+      "name": "Inference",
+      "description": "Provider of inferences from the matching algorithm",
+      "rightsHolder": "Department of Agriculture and Water Resources",
+      "licence": "Proprietory",
+      "parent": "default",
+      "defaultScore" : 0
+    }
+  ],
+  "defaultProvider" : "naqs",
+  "inferenceProvider" : "inference"
+}

@@ -1,0 +1,31 @@
+- include_role:
+    name: common
+    tasks_from: setfacts
+  tags:
+    - process-config
+
+- name: clean processing path
+  file:
+    path: "{{config_install_dir }}"
+    state: absent
+  tags:
+    - process-config
+
+- name: ensure taxxas processing path exists
+  file:
+    path: "{{ config_install_dir }}"
+    state: directory
+  tags:
+    - process-config
+
+- name: copy processing configuration
+  copy:
+    src: "config/"
+    dest: "{{ config_install_dir }}"
+    owner: "jenkins"
+    group: "jenkins"
+  tags:
+    - process-config
+
+
+

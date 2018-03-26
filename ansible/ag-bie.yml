@@ -1,12 +1,12 @@
-# DEWR BIE
+# DAWR BIE
 - hosts: ag-bie
   roles:
     - common
-    - java8
+    - java
     - webserver
-    - tomcat7-java8
+    - tomcat
     - mysql-5.7
-    - jenkins
+    - jenkins-simple
     - bie-hub
     - bie-index
     - solr
@@ -16,4 +16,10 @@
     - cas2
     - apikey
     - userdetails
+    - process-config
+    - nsl-dwca
+    - taxxas-dwca
+    - name-processing
+    - ag-bie-jenkins-config
+    - ag-bie-cas-config
   become: yes

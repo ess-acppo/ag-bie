@@ -1,0 +1,82 @@
+Rank,Banch,Other Names,ALA Term,Notes,CSS Rank,Rank ID
+Root,,,root,Not directly used,kingdom,1
+Domain,,"Superregnum, Superkingdom, Regio",superkingdom,,kingdom,800
+Kingdom,,Regnum,kingdom,,kingdom,1000
+Subkingdom,,Subregnum,subkingdom,,kingdom,1200
+Superphylum,,,superphylum,,phylum,1800
+Phylum,,"Division (botany), Divisio (botany)",phylum,,phylum,2000
+Subphylum,,"Subdivision (botany), Subdivisio (botany)",subphylum,,phylum,2200
+Superclass,,Superclassis,superclass,,class,2800
+Class,,Classis,class,,class,3000
+Subclass,,Subclassis,subclass,,class,3200
+Infraclass,,Infraclassis,infraclass,,class,3350
+Subinfraclass,,,subinfraclass,,class,3370
+Superdivision,zoology,,superdivison zoology,,class,3450
+Division,zoology,,division zoology,,class,3500
+Subdivision,zoology,,subdivision zoology,,class,3550
+Supercohort,zoology,,supercohort,,class,3650
+Cohort,zoology,,cohort,,class,3700
+Subcohort,zoology,,subcohort,,class,3750
+Superorder,,Superordo,superorder,,order,3800
+Order,,Ordo,order,,order,4000
+Suborder,,Subordo,suborder,,order,4200
+Infraorder,,Infraordo,infraorder,,order,4350
+Parvorder,,,parvorder,,order,4400
+Superseries,zoology,,superseries zoology,,order,4445
+Series,zoology,,series zoology,,order,4450
+Subseries,zoology,,subseries zoology,,order,4455
+Supersection,zoology,Supersection,supersection zoology,,order,4465
+Section,zooology,,section zoology,,order,4470
+Subsection,zoology,,subsection zoology,,order,4475
+Superfamily,,Superfamilia,superfamily,,family,4500
+Family,,Familia,family,,family,5000
+Subfamily,,Subfamilia,subfamily,,family,5500
+Infrafamily,,,infrafamily,,family,5550
+Supertribe,,Supertribus,supertribe,,family,5580
+Tribe,,Tribus,tribe,,family,5600
+Subtribe,,Subtribus,subtribe,,family,5700
+Supergenus,,,supergenus,,genus,5900
+Aggregate Genera,,,genus group,A named collection of closely related genera,genus,5950
+Genus,,,genus,,genus,6000
+Nothogenus,,,nothogenus,A genus denoting a hybrid or cross,genus,6001
+Subgenus,,,subgenus,,genus,6500
+Supersection,botany,Supersectio,supersection botany,,genus,6550
+Section,botany,Sectio,section botany,,genus,6600
+Subsection,botany,Subsectio,subsection botany,,genus,6700
+Superseries,botany,,superseries botany,,genus,6750
+Series,botany,,series botany,,genus,6800
+Subseries,botany,,subseries botany,,genus,6900
+Species Group,,Aggregate Species,species group,A named collection of closely related species,species,6950
+Superspecies,,,superspecies,,species,6960
+Species Subgroup,,,species subgroup,A named collection of very closely related species,species,6975
+Species,,,species,,species,7000
+Nothospecies,,,nothospecies,A hybrid formed by directly crossing two species,species,7001
+Holomorph,,,holomorph,"The whole of a fungus, including anamorph and teleomorph phases",species,7100
+Anamorph,,,anamorph,The asexual reproductive phase of a fungus,species,7120
+Teleomorph,,,teleomorph,The sexual reproductive phase of a fungus,species,7140
+Subspecies,,,subspecies,,subspecies,8000
+Nothosubspecies,,,nothosubspecies,A hybrid formed by directly crossing two subspecies,subspecies,8001
+Infraspecies,zoology,,infraspecies,,subspecies,8005
+Variety,,Varietas,variety,,subspecies,8010
+Nothovariety,,Nothovarietas,nothovariety,A hybrid formed by directly crossing two varieties,subspecies,8011
+Subvariety,,Subvarietas,subvariety,,subspecies,8015
+Form,,,form,,subspecies,8020
+Nothoform,,Nothoforma,nothoform,A hybrid formed by directly crossing two forms,subspecies,8021
+Subform,,Subforma,subform,,subspecies,8025
+Biovar,,,biovar,A variant prokaryotic strain that differs physiologically and/or biochemically from other strains in a particular species,subspecies,8030
+Serovar,,,serovar,A variant prokaryotic strain that has antigenic properties that differ from other strains.,subspecies,8040
+Cultivar,,,cultivar,A plant or grouping of plants selected for desirable characteristics that can be maintained by propagation,subspecies,8050
+Pathovar,,,pathovar,"A bacterial strain or set of strains with the same or similar characteristics, that is differentiated at infrasubspecific level from other strains of the same species or subspecies on the basis of distinctive pathogenicity to one or more plant hosts.",subspecies,8080
+Infraspecific,,,infraspecific,,subspecies,8090
+Abberation,,,abberation,A chromosome abnormality,subspecies,8100
+Mutation,,,mutation, A chromosome abnormality,subspecies,8110
+Race,,,race,,subspecies,8120
+Confersubspecies,,,confersubspecies,This only seems to appear in the GBIF ranks,subspecies,8130
+Formaspecialis,,,formaspecialis,A parasite adapted to a specific host,subspecies,8140
+Hybrid,,,hybrid,,subspecies,8150
+Breed,,,breed,,subspecies,8150
+Un-positioned Ranks,,,unpositioned,,subspecies,0
+Incertae Sedis,,,incertae sedis,Of uncertain placement,unknown,0
+Species Inquirenda,,,species inquirenda ,"A species of doubtful identity,requiring further investigation",unknown,0
+Higher Taxon,,,higher taxon,Generic higher taxon,unknown,0
+Unranked,,,unknown,,unknown,0

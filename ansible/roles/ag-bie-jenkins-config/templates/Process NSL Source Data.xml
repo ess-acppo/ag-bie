@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Process and combine the NSL taxonomy&#xd;
+&#xd;
+The files are assumed to be in a datestamped directory /data/work/nsl/YYYYMMDD with name&#xd;
+&#xd;
+nsl_dawr_bieexport.csv&#xd;
+</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>datestamp</name>
+          <description>The datestamp in YYYYMMDD form</description>
+          <defaultValue>YYYYMMDD</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/sh -x
+bail() {
+  echo 1&gt;&amp;2 $*
+  exit 1
+}
+
+# Configuration
+configDir=&quot;{{ config_install_dir }}&quot;
+workDir=&quot;{{ nsl_work_install_dir }}&quot;
+sourceDir=&quot;${workDir}/${datestamp}&quot;
+processDir=&quot;{{ nsl_dwca_install_dir }}/{{ nsl_job_name }}&quot;
+processCmd=&quot;./{{ nsl_job_name }}_run.sh&quot;
+
+# Clear work area
+rm &quot;${workDir}&quot;/DwC/*
+rm &quot;${workDir}&quot;/Processed/*
+
+# Convert TaxxaS tables into DwCA
+cd &quot;${processDir}&quot; || bail &quot;Uable to get to process directory ${processDir}&quot;
+${processCmd} --context_param &quot;workDir=${workDir}&quot; --context_param &quot;dateStamp=${datestamp}&quot; --context_param &quot;configDir=${configDir}&quot; --context_param &quot;outputDir=${workDir}&quot;
+if [ $? -ne 0 ]; then
+ bail &quot;Unable to process source files&quot;
+fi
+
+echo &quot;Processing Results&quot;
+wc -l &quot;${workDir}&quot;/DwC/*
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

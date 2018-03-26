@@ -1,0 +1,60 @@
+- include_role:
+    name: common
+    tasks_from: setfacts
+  vars:
+    version: "0.2"
+    artifactId: "nsl-dwca"
+    classifier: "distribution"
+    groupId: "com.oztaxa.talend"
+    packaging: "zip"
+  tags:
+    - nsl
+
+- name: clean processing path
+  file:
+    path: "{{ nsl_dwca_install_dir }}"
+    state: absent
+  tags:
+    - nsl
+
+- name: ensure taxxas processing path exists
+  file:
+    path: "{{ nsl_dwca_install_dir }}"
+    state: directory
+    owner: jenkins
+    group: jenkins
+  tags:
+    - nsl
+
+- name: download taxxas processing job zip
+  get_url:
+    url: "{{maven_repo_ws_url}}"
+    dest: "{{nsl_dwca_install_dir}}/nsl-dwca.zip"
+    force: yes
+    timeout: 240
+  tags:
+    - nsl
+    - download-zip
+
+- name: install unzip (Debian only)
+  apt: pkg=unzip state=present
+  when: ansible_os_family == "Debian"
+  tags:
+    - nsl
+
+- name: unzip processing job
+  unarchive:
+    src: "{{nsl_dwca_install_dir}}/nsl-dwca.zip"
+    dest: "{{nsl_dwca_install_dir}}"
+    owner: jenkins
+    group: jenkins
+    remote_src: true
+  tags:
+    - nsl
+
+- name: make the processing job runnable
+  file:
+    path: "{{nsl_dwca_install_dir}}/{{nsl_job_name}}/{{nsl_job_name}}_run.sh"
+    mode: a+x
+  tags:
+    - nsl

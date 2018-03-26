@@ -1,0 +1,66 @@
+- name: ensure organisational group
+  group:
+    name: "{{ ag_bie_user }}"
+    state: present
+  tags:
+    - ag-bie-common
+
+- name: ensure organisational user
+  user:
+    name: "{{ ag_bie_user }}"
+    comment: "Organisational user for AG-BIE"
+    group: "{{ ag_bie_user }}"
+    groups: sudo
+    generate_ssh_key: yes
+    state: present
+  tags:
+    - ag-bie-common
+
+- name: allow organisational login via ssh key
+  authorized_key:
+    user: "{{ ag_bie_user }}"
+    state: present
+    key: "{{ lookup('file', ag_bie_local_keys ~ '/' ~ ag_bie_user ~ '.pub') }}"
+  when: ag_bie_local_keys is defined
+  tags:
+    - ag-bie-common
+
+- name: ensure jenkins group
+  group:
+    name: jenkins
+    state: present
+  tags:
+    - ag-bie-common
+
+- name: ensure jenkins user
+  user:
+    name: jenkins
+    comment: "Jenkins"
+    group: jenkins
+    state: present
+  tags:
+    - ag-bie-common
+
+- name: create processing directory
+  file:
+    path: "{{ processing_install_dir }}"
+    state: directory
+  tags:
+    - ag-bie-common
+
+- name: create work directory
+  file:
+    path: "{{ work_install_dir }}"
+    state: directory
+  tags:
+    - ag-bie-common
+
+- name: create archive directory
+  file:
+    path: "{{ archive_install_dir }}"
+    state: directory
+  tags:
+    - ag-bie-common
+
+
+
