@@ -25,19 +25,6 @@
     <div id="header-wrapper">
         <div class="container banner clearfix">
             <a class="logo">${grailsApplication.config.skin.orgNameLong?:''}</a>
-            <div class="top-links-search-wrapper">
-                <ul class="top-links add-last-child-class">
-                    <li><a href="http://agriculture.gov.au/">Home</a></li>
-                    <li><a href="http://agriculture.gov.au/about/ministers">Ministers</a></li>
-                    <li><a href="http://agriculture.gov.au/about/media-centre">Media Centre</a></li>
-                    <li><a href="http://agriculture.gov.au/about/jobs">Jobs</a></li>
-                    <li><a href="http://agriculture.gov.au/languages">Languages</a></li>
-                </ul>
-                <!-- .top-links  -->
-                <form class="navbar-form" role="search" action="/search" method="get">
-                  <input id="nav-search" class="form-control ac_input general-search" name="q" type="text" placeholder="Name..." autocomplete="off">
-                </form>
-            </div>
         </div>
     </div>
 </header>
