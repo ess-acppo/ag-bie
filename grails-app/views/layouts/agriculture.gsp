@@ -37,14 +37,7 @@
 <footer>
     <div class="footer noindex">
         <ul class="footer-links add-last-child-class">
-            <li><a href="http://agriculture.gov.au/about/copyright">&copy; Commonwealth of Australia 2016</a></li>
-            <li><a href="http://agriculture.gov.au/about/accessibility">Accessibility</a></li>
-            <li><a href="http://agriculture.gov.au/about/site_map">Site map</a></li>
-            <li><a href="http://agriculture.gov.au/about/privacy">Privacy</a></li>
-            <li><a href="http://agriculture.gov.au/about/disclaimer">Disclaimer</a></li>
-            <li><a href="http://agriculture.gov.au/about/contactus">Contact us</a></li>
-            <li><a href="http://australia.gov.au">australia.gov.au</a>
-            </li>
+	  <!-- remove all the http://agriculture.gov.au footer URLs/links (at least for now) -->
         </ul>
     </div>
 </footer>
