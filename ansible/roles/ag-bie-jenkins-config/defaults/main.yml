@@ -11,5 +11,5 @@ jenkins_jobs:
   - "Import Taxonomy"
   - "Load from SFTP"
   - "Process NSL Source Data"
-  - "Process Taxxas Source Data"
+  - "Process TaxxaS Source Data"
   - "Swap Cores"
