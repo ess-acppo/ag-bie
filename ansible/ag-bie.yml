@@ -7,19 +7,19 @@
     - tomcat
     - mysql-5.7
     - jenkins-simple
-    - bie-hub
+    - cas2
+    - apikey
+    - userdetails
     - bie-index
     - solr
     - biocache-properties
     - namedata
     - nameindex
-    - cas2
-    - apikey
-    - userdetails
     - process-config
     - nsl-dwca
     - taxxas-dwca
     - name-processing
     - ag-bie-jenkins-config
     - ag-bie-cas-config
+    - bie-hub
   become: yes
