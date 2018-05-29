@@ -17,7 +17,7 @@
                 <div class="col-lg-8">
                     <form id="search-inpage" action="search" method="get" name="search-form">
                         <div class="input-group">
-                            <input id="search" class="form-control ac_input general-search" name="q" type="text" placeholder="Name..." autocomplete="off">
+                            <input id="search" class="form-control ac_input general-search" name="q" type="text" placeholder="Name..." autocomplete="off" autofocus>
                             <span class="input-group-btn">
                                 <input type="submit" class="btn btn-primary" alt="Search" value="Search">
                             </span>

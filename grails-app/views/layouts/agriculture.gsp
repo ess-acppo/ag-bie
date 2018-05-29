@@ -24,7 +24,7 @@
 <header>
     <div id="header-wrapper">
         <div class="container banner clearfix">
-            <a class="logo" href="https://ag-bie.oztaxa.com/">${grailsApplication.config.skin.orgNameLong?:''}</a>
+            <a class="logo" href="/">${grailsApplication.config.skin.orgNameLong?:''}</a>
         </div>
     </div>
 </header>
