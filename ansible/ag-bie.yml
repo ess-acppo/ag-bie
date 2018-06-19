@@ -22,4 +22,5 @@
     - ag-bie-jenkins-config
     - ag-bie-cas-config
     - bie-hub
+    - ag-bie-solr-git
   become: yes

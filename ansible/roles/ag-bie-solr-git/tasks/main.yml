@@ -1,0 +1,7 @@
+- name: clone ag-bie-solr git repo
+  become: no
+  git: >
+    repo=https://github.com/ess-acppo/ag-bie-solr.git
+    dest=/tmp/ag-bie-solr.git
+  tags:
+    - ag-bie-solr-git
