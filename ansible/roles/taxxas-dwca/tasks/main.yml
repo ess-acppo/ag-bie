@@ -2,7 +2,7 @@
     name: common
     tasks_from: setfacts
   vars:
-    version: "0.1"
+    version: "0.3"
     artifactId: "taxxas-dwca"
     classifier: "distribution"
     groupId: "com.oztaxa.talend"
