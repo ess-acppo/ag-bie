@@ -2,8 +2,10 @@ Term,DwC,Accepted,Synonym,Misapplied,Unplaced
 [unknown],unknown,false,true,false,true
 [unplaced name?],unplaced,false,true,false,true
 [unplaced relationship?],unplaced,false,true,false,true
+accepted,accepted,true,false,false,false
 ApcConcept,accepted,true,false,false,false
 ApcExcluded,excluded,true,false,false,true
+available synonym,synonym,false,true,false,false
 excluded,excluded,true,false,false,true
 occurrence doubtful,occurrence doubtful,false,false,true,false
 status uncertain,status uncertain,false,false,true,true
@@ -19,6 +21,7 @@ doubtful synonym,synonym,false,true,false,false
 doubtful taxonomic synonym,heterotypicSynonym,false,true,false,false
 excluded name,excluded,true,false,false,true
 invalid publication,misapplied,false,false,true,false
+literature synonym,miscellaneousLiterature,false,true,false,false
 isonym,synonym,false,true,false,false
 misapplied,misapplied,false,false,true,false
 nom. et stat. nov.,accepted,true,false,false,false
