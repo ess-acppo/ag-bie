@@ -11,7 +11,7 @@
     - apikey
     - userdetails
     - bie-index
-    - solr
+    - solr4
     - biocache-properties
     - namedata
     - nameindex
