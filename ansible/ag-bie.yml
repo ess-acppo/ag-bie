@@ -11,7 +11,7 @@
     - bie-index
     - solr
     - biocache-properties
-    - namedata
+    #- namedata
     - nameindex
     - cas2
     - apikey
