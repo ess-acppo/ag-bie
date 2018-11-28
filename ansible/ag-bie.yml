@@ -11,9 +11,9 @@
     - apikey
     - userdetails
     - bie-index
-    - solr4
+    - solr
     - biocache-properties
-    - namedata
+    #- namedata
     - nameindex
     - process-config
     - nsl-dwca
