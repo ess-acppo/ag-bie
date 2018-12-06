@@ -20,6 +20,10 @@
         "forbidden": [
           {
             "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
+            "nameType": "PLACEHOLDER"
+          },
+          {
+            "@class": "au.org.ala.names.index.provider.MatchTaxonCondition",
             "taxonomicStatus": "INCERTAE_SEDIS"
           },
           {
@@ -223,11 +227,12 @@
       "parent": "default",
       "rightsHolder": "Department of Agriculture and Water Resources",
       "licence": "Proprietory",
-      "defaultScore" : 4000
+      "defaultScore" : 4000,
+      "discardStrategy": "IDENTIFIER_TO_PARENT"
     },
     {
       "id" : "naqs-nsl",
-      "name": "NAQS NSL",
+      "name": "NSL",
       "parent": "default",
       "rightsHolder": "Department of Agriculture and Water Resources",
       "licence": "Proprietory",
