@@ -231,8 +231,32 @@
       "discardStrategy": "IDENTIFIER_TO_PARENT"
     },
     {
-      "id" : "naqs-nsl",
-      "name": "NSL",
+      "id" : "nsl-icn",
+      "name": "NSL ICN",
+      "parent": "default",
+      "rightsHolder": "Department of Agriculture and Water Resources",
+      "licence": "Proprietory",
+      "defaultScore" : 5000
+    },
+    {
+      "id" : "nsl-icnp",
+      "name": "NSL ICNP",
+      "parent": "default",
+      "rightsHolder": "Department of Agriculture and Water Resources",
+      "licence": "Proprietory",
+      "defaultScore" : 5000
+    },
+    {
+      "id" : "nsl-icvcn",
+      "name": "NSL ICVCN",
+      "parent": "default",
+      "rightsHolder": "Department of Agriculture and Water Resources",
+      "licence": "Proprietory",
+      "defaultScore" : 5000
+    },
+    {
+      "id" : "nsl-iczn",
+      "name": "NSL ICZN",
       "parent": "default",
       "rightsHolder": "Department of Agriculture and Water Resources",
       "licence": "Proprietory",
