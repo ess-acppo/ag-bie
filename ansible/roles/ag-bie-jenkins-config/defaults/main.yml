@@ -13,3 +13,4 @@ jenkins_jobs:
   - "Process NSL Source Data"
   - "Process TaxxaS Source Data"
   - "Swap Cores"
+  - "Build_Solr"
