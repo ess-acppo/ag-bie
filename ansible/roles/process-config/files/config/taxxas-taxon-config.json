@@ -236,7 +236,7 @@
       "parent": "default",
       "rightsHolder": "Department of Agriculture and Water Resources",
       "licence": "Proprietory",
-      "defaultScore" : 5000
+      "defaultScore" : 6000
     },
     {
       "id" : "nsl-icnp",
@@ -244,7 +244,7 @@
       "parent": "default",
       "rightsHolder": "Department of Agriculture and Water Resources",
       "licence": "Proprietory",
-      "defaultScore" : 5000
+      "defaultScore" : 6000
     },
     {
       "id" : "nsl-icvcn",
@@ -252,13 +252,37 @@
       "parent": "default",
       "rightsHolder": "Department of Agriculture and Water Resources",
       "licence": "Proprietory",
-      "defaultScore" : 5000
+      "defaultScore" : 6000
     },
     {
       "id" : "nsl-iczn",
       "name": "NSL ICZN",
       "parent": "default",
       "rightsHolder": "Department of Agriculture and Water Resources",
+      "licence": "Proprietory",
+      "defaultScore" : 6000
+    },
+    {
+      "id" : "anbg-moss",
+      "name": "ANBG AusMoss",
+      "parent": "default",
+      "rightsHolder": "Australian National Botanical Gardens",
+      "licence": "Proprietory",
+      "defaultScore" : 5000
+    },
+    {
+      "id" : "anbg-lich",
+      "name": "ANBG Lichens",
+      "parent": "default",
+      "rightsHolder": "Australian National Botanical Gardens",
+      "licence": "Proprietory",
+      "defaultScore" : 5000
+    },
+    {
+      "id" : "anbg-vasc",
+      "name": "ANBG Vascular Plants",
+      "parent": "default",
+      "rightsHolder": "Australian National Botanical Gardens",
       "licence": "Proprietory",
       "defaultScore" : 5000
     },
