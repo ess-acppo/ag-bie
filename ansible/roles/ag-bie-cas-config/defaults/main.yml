@@ -2,6 +2,6 @@
 cas_skin: plain
 cas_identity_providers:
 cas_allow_register: false
-java_cacert_path: /usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts
+java_cacert_path: /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/cacerts
 java_cacert_password: changeit
 java_temp_keystore: "{{ ssl_certificate_server_dir}}/{{ server_name }}.pk12"
