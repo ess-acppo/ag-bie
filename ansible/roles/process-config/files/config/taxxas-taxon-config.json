@@ -232,7 +232,7 @@
     },
     {
       "id" : "nsl-icn",
-      "name": "NSL ICN",
+      "name": "NXL ICN",
       "parent": "default",
       "rightsHolder": "Department of Agriculture and Water Resources",
       "licence": "Proprietory",
@@ -240,7 +240,7 @@
     },
     {
       "id" : "nsl-icnp",
-      "name": "NSL ICNP",
+      "name": "NXL ICNP",
       "parent": "default",
       "rightsHolder": "Department of Agriculture and Water Resources",
       "licence": "Proprietory",
@@ -248,7 +248,7 @@
     },
     {
       "id" : "nsl-icvcn",
-      "name": "NSL ICVCN",
+      "name": "NXL ICVCN",
       "parent": "default",
       "rightsHolder": "Department of Agriculture and Water Resources",
       "licence": "Proprietory",
@@ -256,7 +256,7 @@
     },
     {
       "id" : "nsl-iczn",
-      "name": "NSL ICZN",
+      "name": "NXL ICZN",
       "parent": "default",
       "rightsHolder": "Department of Agriculture and Water Resources",
       "licence": "Proprietory",
@@ -281,6 +281,22 @@
     {
       "id" : "anbg-vasc",
       "name": "ANBG Vascular Plants",
+      "parent": "default",
+      "rightsHolder": "Australian National Botanical Gardens",
+      "licence": "Proprietory",
+      "defaultScore" : 5000
+    },
+    {
+      "id" : "anbg-fungi",
+      "name": "ANBG Fungi",
+      "parent": "default",
+      "rightsHolder": "Australian National Botanical Gardens",
+      "licence": "Proprietory",
+      "defaultScore" : 5000
+    },
+    {
+      "id" : "anbg-algae",
+      "name": "ANBG Algae",
       "parent": "default",
       "rightsHolder": "Australian National Botanical Gardens",
       "licence": "Proprietory",
